@@ -5,7 +5,7 @@ class GamesController < ApplicationController
   def generate_grid(grid_size)
     grid = []
     grid_size.times do
-      grid << ("A".."Z").to_a.sample
+      grid << ('A'..'Z').to_a.sample
     end
     grid
   end
@@ -30,15 +30,13 @@ class GamesController < ApplicationController
 
   def new
     @letters = generate_grid(10)
-    # session[:user_score] = 0
-    # @score_number += session[:user_score] if session[:user_score]
   end
 
   def score
     if mot_valide?(params[:word]) && mot_dans_grid?(params[:word], params[:grid])
-      @score = "Congratulations! #{params[:word]} is a valide English word!"
+      @score = "Congratulations! #{params[:word]} is a valid English word!"
       session[:user_score] = 0 if session[:user_score].nil?
-      session[:user_score] += params[:word].length if !session[:user_score].nil?
+      session[:user_score] += params[:word].length unless ession[:user_score].nil?
     elsif !mot_valide?(params[:word])
       @score = "Sorry but #{params[:word]} does not seem to be a valid English word..."
     elsif !mot_dans_grid?(params[:word], params[:grid])
