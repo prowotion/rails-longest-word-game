@@ -2,7 +2,7 @@
   <h1>New game</h1>
   <ul class="list-inline">
     <% @letters.each do |letter| %>
-      <li class="list-inline-item bg-primary p-3 m-1 text-white fw-bold"><%= letter %></li>
+      <li class="list-inline-item bg-primary p-3 m-1 text-white fw-bold fs-3"><%= letter %></li>
     <% end %>
   </ul>
 
@@ -18,4 +18,5 @@
     </div>
   </form>
 
+  <h2>Current score: <%= session[:user_score] %></h2>
 </div>
