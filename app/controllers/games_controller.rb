@@ -36,9 +36,9 @@ class GamesController < ApplicationController
   def score
     if mot_valide?(params[:word]) && mot_dans_grid?(params[:word], params[:grid])
       @score = "Congratulations! #{params[:word]} is a valide English word!"
-    elsif !mot_valide?(attempt)
+    elsif !mot_valide?(params[:word])
       @score = "Sorry but #{params[:word]} does not seem to be a valid English word..."
-    elsif !mot_dans_grid?(attempt, grid)
+    elsif !mot_dans_grid?(params[:word], params[:grid])
       @score = "Sorry but #{params[:word]} can't be built ouf of #{params[:grid]}"
     end
     @score
